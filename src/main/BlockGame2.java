@@ -264,13 +264,13 @@ public class BlockGame2
 
 		public void movement()
 		{
-			if (bar.x < CANVAS_WIDTH - BAR_WIDTH - 30 && bar.x < barXTarget)
+			if (bar.x < barXTarget && bar.x < CANVAS_WIDTH - BAR_WIDTH - 30)
 			{ // go right
-				bar.x += 15;
+				bar.x += 5;
 			}
-			else if (bar.x > BALL_WIDTH / 2 && bar.x > barXTarget)
+			else if (bar.x > barXTarget && bar.x > BALL_WIDTH / 2)
 			{ // go left
-				bar.x -= 15;
+				bar.x -= 5;
 			}
 
 			if (dir == 0)
