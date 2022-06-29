@@ -4,6 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import main.BlockGame2.MyFrame;
+import main.BlockGame2.MyFrame.Block;
+import main.BlockGame2.MyFrame.MyPanel;
+
 public class BlockGame
 {
 
@@ -24,7 +28,7 @@ public class BlockGame
 
 		// variable
 		static MyPanel myPanel = null;
-		static Block[][] block = new Block[BLOCK_ROWS][BLOCK_COLUMNS];
+		static Block[][] blocks = new Block[BLOCK_ROWS][BLOCK_COLUMNS];
 		static Bar bar = new Bar();
 		static Ball ball = new Ball();
 		static Timer timer = null;
@@ -56,12 +60,59 @@ public class BlockGame
 		{
 			int x = (CANVAS_WIDTH - BALL_WIDTH) / 2;
 			int y = (CANVAS_HEIGHT - 100 - BALL_HEIGHT);
+
+			Point getCenter()
+			{
+				return new Point(x + (BALL_WIDTH / 2), y + (BALL_HEIGHT / 2));
+			}
+
+			Point getBottomCenter()
+			{
+				return new Point(x + (BALL_WIDTH / 2), y + (BALL_HEIGHT));
+			}
+
+			Point getTopCenter()
+			{
+				return new Point(x + (BALL_WIDTH / 2), y);
+			}
+
+			Point getLeftCenter()
+			{
+				return new Point(x, y + (BALL_HEIGHT / 2));
+			}
+
+			Point getRightCenter()
+			{
+				return new Point(x + (BALL_WIDTH), y + (BALL_HEIGHT / 2));
+			}
 		}
 
 		static class MyPanel extends JPanel
 		{
+			public MyPanel()
+			{
+				this.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
+				this.setBackground(Color.BLACK);
+			}
 
+			@Override
+			public void paint(Graphics g)
+			{
+				super.paint(g);
+				Graphics2D g2d = (Graphics2D) g;
+
+				drawUI(g2d);
+			}
+
+			public void drawUI(Graphics2D g2d)
+			{
+				
+			}
 		}
 	}
 
+	public static void main(String[] args)
+	{
+		
+	}
 }
